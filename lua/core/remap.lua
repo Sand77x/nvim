@@ -87,8 +87,6 @@ vim.keymap.set("n", "<C-k>", "<C-w>k");
 vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>vh", ":split<CR>")
 vim.keymap.set("n", "<leader>vo", ":only<CR>")
-vim.keymap.set("n", "<A-j>", "3<C-w><")
-vim.keymap.set("n", "<A-k>", "3<C-w>>")
 
 -- changing working dir
 vim.keymap.set("n", "<leader>cdh", ":cd %:h<CR>:cd<CR>")

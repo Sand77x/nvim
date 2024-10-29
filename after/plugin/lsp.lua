@@ -2,7 +2,7 @@ require("mason").setup()
 require("mason-lspconfig").setup({
     ensure_installed = {
         "lua_ls",
-        "tsserver",
+        "ts_ls",
         "eslint",
         "clangd",
         "pyright",
@@ -30,7 +30,7 @@ require("lspconfig").lua_ls.setup({
     capabilities = capabilities
 })
 
-require("lspconfig").tsserver.setup({
+require("lspconfig").ts_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
     init_options = {

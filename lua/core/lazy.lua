@@ -17,6 +17,37 @@ local plugins = {
         version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
         build = "make install_jsregexp"
     },
+    -- Colorschemes
+    'andreypopp/vim-colors-plain',
+    "alligator/accent.vim",
+    {
+        "zenbones-theme/zenbones.nvim",
+        -- Optionally install Lush. Allows for more configuration or extending the colorscheme
+        -- If you don't want to install lush, make sure to set g:zenbones_compat = 1
+        -- In Vim, compat mode is turned on as Lush only works in Neovim.
+        dependencies = "rktjmp/lush.nvim",
+        lazy = false,
+        priority = 1000,
+        -- you can set set configuration options here
+        -- config = function()
+        --     vim.g.zenbones_darken_comments = 45
+        --     vim.cmd.colorscheme('zenbones')
+        -- end
+    },
+    {
+        "mcauley-penney/ice-cave.nvim",
+        config = function()
+            vim.cmd.colorscheme("ice-cave")
+        end,
+        priority = 1000
+    },
+    {
+        'bettervim/yugen.nvim',
+        config = function()
+            vim.cmd.colorscheme('yugen')
+        end,
+    },
+    "gmr458/cold.nvim",
     "eandrju/cellular-automaton.nvim",
     "lunarvim/Onedarker.nvim",
     "rafamadriz/friendly-snippets",
@@ -42,11 +73,6 @@ local plugins = {
         end
     },
     "nvim-lua/plenary.nvim",
-    {
-        "ThePrimeagen/harpoon",
-        branch = "harpoon2",
-        dependencies = { "nvim-lua/plenary.nvim" }
-    },
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { "nvim-tree/nvim-web-devicons" }
@@ -80,6 +106,9 @@ local plugins = {
                         mappings = {
                             ["-"] = "navigate_up",
                         }
+                    },
+                    follow_current_file = {
+                        enabled = true
                     }
                 }
             })
@@ -96,12 +125,9 @@ local plugins = {
         "nvim-treesitter/nvim-treesitter",
         config = function()
             require 'nvim-treesitter.configs'.setup {
-                ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query" },
-                sync_install = false,
-                auto_install = true,
+                ensure_installed = { "javascript", "typescript", "c", "lua", "vim", "vimdoc", "query", "luadoc", "markdown" },
                 highlight = {
                     enable = true,
-                    additional_vim_regex_highlighting = false,
                 },
             }
         end
@@ -151,25 +177,6 @@ local plugins = {
     "mbbill/undotree",
     "ThePrimeagen/vim-be-good",
     "tpope/vim-fugitive",
-    {
-        'goolord/alpha-nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons',
-            'nvim-lua/plenary.nvim'
-        },
-        config = function()
-            require("themes.alpha-config")
-        end
-    },
-    {
-        "letieu/harpoon-lualine",
-        dependencies = {
-            {
-                "ThePrimeagen/harpoon",
-                branch = "harpoon2",
-            }
-        },
-    },
     "ggandor/leap.nvim",
     "tpope/vim-commentary",
     "nvim-pack/nvim-spectre",

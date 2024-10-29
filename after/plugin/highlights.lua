@@ -1,3 +1,6 @@
+-- basic
+vim.api.nvim_set_hl(0, "CursorLine", { bg = "None" })
+
 -- git
 vim.api.nvim_set_hl(0, "DiffAdd", { fg = "#5fd75f" })
 vim.api.nvim_set_hl(0, "DiffAdded", { link = "DiffAdd" })
