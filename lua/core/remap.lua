@@ -119,3 +119,13 @@ vim.keymap.set('n', '<A-k>', '<C-w>3+')
 -- spectre remaps
 vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").toggle()<CR>')
 vim.keymap.set('n', '<leader>sf', '<cmd>lua require("spectre").open_file_search()<CR>')
+
+-- leap remaps
+vim.keymap.set({ 'n', 'x' }, '<Enter>', function()
+    local current_window = vim.fn.win_getid()
+    require('leap').leap { target_windows = { current_window } }
+end)
+
+-- luasnip remaps
+vim.keymap.set({ "i", "s" }, "<C-j>", function() require("ls").jump(1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-k>", function() require("ls").jump(-1) end, { silent = true })
