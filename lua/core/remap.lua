@@ -50,9 +50,8 @@ vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
 -- file sourcing maps
 -- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 -- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-vim.keymap.set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+vim.keymap.set("n", "<leader><leader>", "<cmd>source %<CR>")
+vim.keymap.set("v", "<leader><leader>", ":lua<CR>")
 
 -- lsp remaps
 vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, vim.opts)
@@ -102,8 +101,7 @@ vim.keymap.set("n", "(", "*")
 vim.keymap.set("n", ")", "#")
 
 -- trouble and todo remaps
-vim.keymap.set("n", "<leader>tt", function() vim.cmd("TroubleToggle document_diagnostics") end)
-vim.keymap.set("n", "<leader>pt", function() vim.cmd("TodoTelescope") end)
+vim.keymap.set("n", "<leaer>pt", function() vim.cmd("TodoTelescope") end)
 
 -- minifiles
 -- vim.keymap.set("n", "<leader>pv", function() vim.cmd(":lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)") end)
