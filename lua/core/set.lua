@@ -1,7 +1,7 @@
 vim.opt.shell = "cmd"
 vim.g.mapleader = " "
 
--- vim.opt.guicursor = ""
+vim.opt.guicursor = ""
 vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.shellslash = true
@@ -34,9 +34,3 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = ""
-
--- nerdcommenter
-vim.g.NERDCreateDefaultMappings = 1
-vim.g.NERDSpaceDelims = 1
-vim.g.NERDDefaultAlign = "left"
-vim.g.NERDCommentEmptyLines = 1

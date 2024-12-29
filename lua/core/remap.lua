@@ -113,9 +113,8 @@ vim.keymap.set("n", "<leader>cdh", ":cd %:h<CR>:cd<CR>")
 
 -- fugitive git
 vim.keymap.set("n", "<leader>gs", function()
-	vim.cmd("Git")
+	vim.cmd("tab Git")
 	vim.cmd("wincmd H")
-	vim.cmd("vertical resize 40")
 end)
 
 -- undotree
