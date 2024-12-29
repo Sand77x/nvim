@@ -1,3 +1,12 @@
+local function cmp_status()
+	local enabled = require("misc.cmp").is_cmp_enabled()
+	if not enabled then
+		return [[--- CMP DISABLED ---]]
+	else
+		return ""
+	end
+end
+
 return {
 	{ "nvim-tree/nvim-web-devicons" },
 	{
@@ -18,12 +27,13 @@ return {
 					theme = custom,
 					-- component_separators = { left = '', right = ''},
 					-- section_separators = { left = '', right = ','},
-					component_separators = { left = "", right = "/" },
+					component_separators = { left = "   ", right = "/" },
 					section_separators = { left = "", right = "" },
 				},
 				sections = {
 					lualine_a = { "mode" },
 					lualine_b = { "branch" },
+					lualine_c = { "filename", cmp_status },
 					lualine_x = { "filetype", "encoding" },
 					lualine_y = { "location" },
 					lualine_z = {},
