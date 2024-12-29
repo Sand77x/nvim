@@ -39,17 +39,8 @@ vim.keymap.set({ "n", "v" }, "X", [["_X]])
 vim.keymap.set("n", "Q", "<nop>")
 vim.keymap.set("n", "s", "<nop>")
 vim.keymap.set("n", "S", "<nop>")
--- vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-
--- switching qf and loclists
-vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
-vim.keymap.set("n", "<C-j>", "<cmd>cprev<CR>zz")
--- vim.keymap.set("n", "<leader>k", "<cmd>lnext<CR>zz")
--- vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 -- file sourcing maps
--- vim.keymap.set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
--- vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 vim.keymap.set("n", "<leader><leader>", "<cmd>source %<CR>")
 vim.keymap.set("v", "<leader><leader>", ":lua<CR>")
 
@@ -103,7 +94,6 @@ vim.keymap.set("i", "{<CR>", "{<CR>}<ESC>O")
 vim.keymap.set("i", "{;<CR>", "{<CR>};<ESC>O")
 
 -- splits remaps
--- vim.keymap.set("n", "<leader><tab>", "<C-w><C-w>");
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-l>", "<C-w>l")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
@@ -122,7 +112,11 @@ vim.keymap.set("n", "<C-Down>", "<C-w>3+")
 vim.keymap.set("n", "<leader>cdh", ":cd %:h<CR>:cd<CR>")
 
 -- fugitive git
-vim.keymap.set("n", "<leader>gs", ":G<CR><C-w>H:vertical resize 40<CR>")
+vim.keymap.set("n", "<leader>gs", function()
+	vim.cmd("Git")
+	vim.cmd("wincmd H")
+	vim.cmd("vertical resize 40")
+end)
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -133,15 +127,17 @@ vim.keymap.set("n", ")", "#")
 
 -- neotree
 vim.keymap.set("n", "<leader>pv", function()
+	local disabled_fts = { "fugitive", "TelescopePrompt" }
+	for _, ft in ipairs(disabled_fts) do
+		if vim.bo.filetype == ft then
+			return
+		end
+	end
 	vim.cmd(":Neotree reveal toggle filesystem")
 end)
 vim.keymap.set("n", "<leader>pd", function()
 	vim.cmd(":Neotree document_symbols reveal toggle position=right")
 end)
-
--- spectre remaps
-vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").toggle()<CR>')
-vim.keymap.set("n", "<leader>sf", '<cmd>lua require("spectre").open_file_search()<CR>')
 
 -- leap remaps
 vim.keymap.set({ "n", "x" }, "<Enter>", function()
