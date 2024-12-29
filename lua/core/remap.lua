@@ -54,20 +54,40 @@ vim.keymap.set("n", "<leader><leader>", "<cmd>source %<CR>")
 vim.keymap.set("v", "<leader><leader>", ":lua<CR>")
 
 -- lsp remaps
-vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, vim.opts)
-vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, vim.opts)
-vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, vim.opts)
-vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, vim.opts)
-vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, vim.opts)
-vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, vim.opts)
-vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, vim.opts)
-vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, vim.opts)
-vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, vim.opts)
-vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, vim.opts)
+vim.keymap.set("n", "gd", function()
+	vim.lsp.buf.definition()
+end, vim.opts)
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover()
+end, vim.opts)
+vim.keymap.set("n", "<leader>vws", function()
+	vim.lsp.buf.workspace_symbol()
+end, vim.opts)
+vim.keymap.set("n", "<leader>vd", function()
+	vim.diagnostic.open_float()
+end, vim.opts)
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.goto_next()
+end, vim.opts)
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.goto_prev()
+end, vim.opts)
+vim.keymap.set("n", "<leader>vca", function()
+	vim.lsp.buf.code_action()
+end, vim.opts)
+vim.keymap.set("n", "<leader>vrr", function()
+	vim.lsp.buf.references()
+end, vim.opts)
+vim.keymap.set("n", "<leader>vrn", function()
+	vim.lsp.buf.rename()
+end, vim.opts)
+vim.keymap.set("i", "<C-h>", function()
+	vim.lsp.buf.signature_help()
+end, vim.opts)
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)
 
 -- autoclose remaps (fucken amazing)
-vim.keymap.set("i", "\"<tab>", "\"\"<Left>")
+vim.keymap.set("i", '"<tab>', '""<Left>')
 vim.keymap.set("i", "'<tab>", "''<Left>")
 vim.keymap.set("i", "(<tab>", "()<Left>")
 vim.keymap.set("i", "<<tab>", "<><Left>")
@@ -79,19 +99,25 @@ vim.keymap.set("i", "{;<CR>", "{<CR>};<ESC>O")
 
 -- splits remaps
 -- vim.keymap.set("n", "<leader><tab>", "<C-w><C-w>");
-vim.keymap.set("n", "<C-h>", "<C-w>h");
-vim.keymap.set("n", "<C-l>", "<C-w>l");
-vim.keymap.set("n", "<C-j>", "<C-w>j");
-vim.keymap.set("n", "<C-k>", "<C-w>k");
+vim.keymap.set("n", "<C-h>", "<C-w>h")
+vim.keymap.set("n", "<C-l>", "<C-w>l")
+vim.keymap.set("n", "<C-j>", "<C-w>j")
+vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader>vs", ":vsplit<CR>")
 vim.keymap.set("n", "<leader>vh", ":split<CR>")
 vim.keymap.set("n", "<leader>vo", ":only<CR>")
+
+-- splits resize
+vim.keymap.set("n", "<C-Left>", "<C-w>3<")
+vim.keymap.set("n", "<C-Right>", "<C-w>3>")
+vim.keymap.set("n", "<C-Up>", "<C-w>3-:set cmdheight=1<CR>")
+vim.keymap.set("n", "<C-Down>", "<C-w>3+")
 
 -- changing working dir
 vim.keymap.set("n", "<leader>cdh", ":cd %:h<CR>:cd<CR>")
 
 -- fugitive git
-vim.keymap.set("n", "<leader>gs", ":G<CR><C-w>H:vertical resize 40<CR>");
+vim.keymap.set("n", "<leader>gs", ":G<CR><C-w>H:vertical resize 40<CR>")
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
@@ -100,32 +126,28 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "(", "*")
 vim.keymap.set("n", ")", "#")
 
--- trouble and todo remaps
-vim.keymap.set("n", "<leaer>pt", function() vim.cmd("TodoTelescope") end)
-
--- minifiles
--- vim.keymap.set("n", "<leader>pv", function() vim.cmd(":lua MiniFiles.open(vim.api.nvim_buf_get_name(0), false)") end)
-
 -- neotree
-vim.keymap.set("n", "<leader>pv", function() vim.cmd(":Neotree toggle position=right") end)
-vim.keymap.set("n", "<leader>pd", function() vim.cmd(":Neotree document_symbols toggle position=right") end)
-
--- splits resize
-vim.keymap.set('n', '<A-h>', '<C-w>3<')
-vim.keymap.set('n', '<A-l>', '<C-w>3>')
-vim.keymap.set('n', '<A-j>', '<C-w>3-')
-vim.keymap.set('n', '<A-k>', '<C-w>3+')
+vim.keymap.set("n", "<leader>pv", function()
+	vim.cmd(":Neotree reveal toggle filesystem")
+end)
+vim.keymap.set("n", "<leader>pd", function()
+	vim.cmd(":Neotree document_symbols reveal toggle position=right")
+end)
 
 -- spectre remaps
-vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").toggle()<CR>')
-vim.keymap.set('n', '<leader>sf', '<cmd>lua require("spectre").open_file_search()<CR>')
+vim.keymap.set("n", "<leader>sp", '<cmd>lua require("spectre").toggle()<CR>')
+vim.keymap.set("n", "<leader>sf", '<cmd>lua require("spectre").open_file_search()<CR>')
 
 -- leap remaps
-vim.keymap.set({ 'n', 'x' }, '<Enter>', function()
-    local current_window = vim.fn.win_getid()
-    require('leap').leap { target_windows = { current_window } }
+vim.keymap.set({ "n", "x" }, "<Enter>", function()
+	local current_window = vim.fn.win_getid()
+	require("leap").leap({ target_windows = { current_window } })
 end)
 
 -- luasnip remaps
-vim.keymap.set({ "i", "s" }, "<C-j>", function() require("ls").jump(1) end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-k>", function() require("ls").jump(-1) end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-j>", function()
+	require("luasnip").jump(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-k>", function()
+	require("luasnip").jump(-1)
+end, { silent = true })
