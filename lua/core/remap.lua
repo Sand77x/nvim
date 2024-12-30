@@ -121,8 +121,8 @@ end)
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 
 -- remap "go to next instance" binds
-vim.keymap.set("n", "(", "*")
-vim.keymap.set("n", ")", "#")
+vim.keymap.set("n", ")", "*")
+vim.keymap.set("n", "(", "#")
 
 -- neotree
 vim.keymap.set("n", "<leader>pv", function()
