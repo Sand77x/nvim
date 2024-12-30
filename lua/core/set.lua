@@ -1,5 +1,6 @@
 vim.opt.shell = "cmd"
 vim.g.mapleader = " "
+vim.opt.iskeyword:remove("_")
 
 vim.opt.guicursor = "a:blinkon0"
 vim.opt.cursorline = true

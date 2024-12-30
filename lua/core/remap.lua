@@ -77,11 +77,6 @@ vim.keymap.set("i", "<C-h>", function()
 end, vim.opts)
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)
 
--- cmp keymaps
-vim.keymap.set("n", "<leader>cm", function()
-	require("misc.cmp").toggle_cmp()
-end)
-
 -- autoclose remaps (fucken amazing)
 vim.keymap.set("i", '"<tab>', '""<Left>')
 vim.keymap.set("i", "'<tab>", "''<Left>")

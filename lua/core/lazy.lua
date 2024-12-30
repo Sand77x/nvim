@@ -13,6 +13,19 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 	spec = {
+		-- dependency
+		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-tree/nvim-web-devicons" },
+		-- lsp stuff
+		{ "williamboman/mason.nvim" },
+		{ "rafamadriz/friendly-snippets" },
+		{ "mfussenegger/nvim-jdtls" },
+		{ "leafOfTree/vim-svelte-plugin" },
+		-- plpugins with actual configuration
 		{ import = "plugins" },
+		-- helpful for dev stuff
+		{ "mattn/emmet-vim" },
+		{ "tpope/vim-commentary" },
+		{ "wellle/targets.vim" },
 	},
 })
