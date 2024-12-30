@@ -16,6 +16,10 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
+-- macro remap
+vim.keymap.set("n", "Q", "q")
+vim.keymap.set("n", "q", "<nop>")
+
 -- next greatest remap ever : asbjornHaland (system paste)
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
@@ -34,11 +38,6 @@ vim.keymap.set({ "n", "v" }, "<leader>x", "x")
 vim.keymap.set({ "n", "v" }, "<leader>X", "X")
 vim.keymap.set({ "n", "v" }, "x", [["_x]])
 vim.keymap.set({ "n", "v" }, "X", [["_X]])
-
--- remove maps
-vim.keymap.set("n", "Q", "<nop>")
-vim.keymap.set("n", "s", "<nop>")
-vim.keymap.set("n", "S", "<nop>")
 
 -- file sourcing maps
 vim.keymap.set("n", "<leader><leader>", "<cmd>source %<CR>")
