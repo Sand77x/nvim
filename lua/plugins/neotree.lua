@@ -19,6 +19,7 @@ return {
 						mappings = {
 							["-"] = "navigate_up",
 							["<Esc>"] = "close_window",
+							["<leader>pv"] = "close_window",
 						},
 					},
 					follow_current_file = {

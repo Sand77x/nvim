@@ -132,7 +132,7 @@ vim.keymap.set("n", "<leader>pv", function()
 			return
 		end
 	end
-	vim.cmd(":Neotree reveal toggle filesystem")
+	vim.cmd(":Neotree")
 end)
 vim.keymap.set("n", "<leader>pd", function()
 	vim.cmd(":Neotree document_symbols reveal toggle position=right")
