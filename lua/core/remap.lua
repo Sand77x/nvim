@@ -106,10 +106,7 @@ vim.keymap.set("n", "<C-Down>", "<C-w>3+")
 vim.keymap.set("n", "<leader>cdh", ":cd %:h<CR>:cd<CR>")
 
 -- fugitive git
-vim.keymap.set("n", "<leader>gs", function()
-	vim.cmd("tab Git")
-	vim.cmd("wincmd H")
-end)
+vim.keymap.set("n", "<leader>gs", ":tab Git<CR>")
 
 -- undotree
 vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
