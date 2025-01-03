@@ -37,13 +37,13 @@ return {
 					},
 				},
 			},
-			ts_ls = {},
-			eslint = {},
-			tailwindcss = {},
-			intelephense = {},
-			clangd = {},
-			pyright = {},
-			html = {
+            ts_ls = {},
+            eslint = {},
+            tailwindcss = {},
+            intelephense = {},
+            clangd = {},
+            pyright = {},
+            html = {
 				settings = {
 					css = {
 						lint = {

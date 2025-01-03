@@ -1,5 +1,4 @@
 -- help command but in fullscreen
--- TODO: put in buffer instead of tab
 vim.api.nvim_create_user_command("H", "tab help <args>", {
 	nargs = "?",
 	complete = function(arg_lead, _, _)
@@ -15,5 +14,3 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.api.nvim_buf_set_keymap(args.buf, "n", "gd", "<C-]>", { silent = true })
 	end,
 })
-
-print("Sourced help thingy")

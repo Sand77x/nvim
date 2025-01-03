@@ -8,7 +8,6 @@ return {
 	---@type blink.cmp.Config
 	opts = {
 		keymap = {
-			preset = "none",
 			["<C-n>"] = { "show", "hide" },
 			["<CR>"] = { "accept", "fallback" },
 			["<C-l>"] = { "snippet_forward", "fallback" },
@@ -21,14 +20,14 @@ return {
 
 		completion = {
 			list = {
-				selection = "manual",
+				selection = "preselect",
 			},
 			menu = {
 				auto_show = false,
 			},
-			ghost_text = {
-				enabled = true,
-			},
+			-- ghost_text = {
+			-- 	enabled = true,
+			-- },
 			documentation = {
 				auto_show = true,
 				auto_show_delay_ms = 500,
@@ -48,6 +47,12 @@ return {
 				},
 			},
 		},
+
+        fuzzy = {
+            use_typo_resistance = true,
+            use_frecency = true,
+            use_proximity = true,
+        },
 
 		-- REALLY COOL, but until it has a way to be manually enabled,
 		-- i dont really want to use it
@@ -103,9 +108,4 @@ return {
 		end,
 	},
 	opts_extend = { "sources.default" },
-	fuzzy = {
-		prebuilt_binaries = {
-			download = true,
-		},
-	},
 }

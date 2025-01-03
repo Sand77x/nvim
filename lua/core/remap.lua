@@ -45,34 +45,34 @@ vim.keymap.set("v", "<leader><leader>", ":lua<CR>")
 
 -- lsp remaps
 vim.keymap.set("n", "gd", function()
-	vim.lsp.buf.definition()
+    vim.lsp.buf.definition()
 end, vim.opts)
 vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover()
+    vim.lsp.buf.hover()
 end, vim.opts)
 vim.keymap.set("n", "<leader>vws", function()
-	vim.lsp.buf.workspace_symbol()
+    vim.lsp.buf.workspace_symbol()
 end, vim.opts)
 vim.keymap.set("n", "<leader>vd", function()
-	vim.diagnostic.open_float()
+    vim.diagnostic.open_float()
 end, vim.opts)
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.goto_next()
+    vim.diagnostic.goto_next()
 end, vim.opts)
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.goto_prev()
+    vim.diagnostic.goto_prev()
 end, vim.opts)
 vim.keymap.set("n", "<leader>vca", function()
-	vim.lsp.buf.code_action()
+    vim.lsp.buf.code_action()
 end, vim.opts)
 vim.keymap.set("n", "<leader>vrr", function()
-	vim.lsp.buf.references()
+    vim.lsp.buf.references()
 end, vim.opts)
 vim.keymap.set("n", "<leader>vrn", function()
-	vim.lsp.buf.rename()
+    vim.lsp.buf.rename()
 end, vim.opts)
 vim.keymap.set("i", "<C-h>", function()
-	vim.lsp.buf.signature_help()
+    vim.lsp.buf.signature_help()
 end, vim.opts)
 vim.keymap.set("n", "<leader>fo", vim.lsp.buf.format)
 
@@ -117,28 +117,20 @@ vim.keymap.set("n", "(", "#")
 
 -- neotree
 vim.keymap.set("n", "<leader>pv", function()
-	local disabled_fts = { "fugitive", "TelescopePrompt" }
-	for _, ft in ipairs(disabled_fts) do
-		if vim.bo.filetype == ft then
-			return
-		end
-	end
-	vim.cmd(":Neotree")
+    local disabled_fts = { "fugitive", "TelescopePrompt" }
+    for _, ft in ipairs(disabled_fts) do
+        if vim.bo.filetype == ft then
+            return
+        end
+    end
+    vim.cmd(":Neotree")
 end)
 vim.keymap.set("n", "<leader>pd", function()
-	vim.cmd(":Neotree document_symbols reveal toggle position=right")
+    vim.cmd(":Neotree document_symbols reveal toggle position=right")
 end)
 
 -- leap remaps
 vim.keymap.set({ "n", "x" }, "<Enter>", function()
-	local current_window = vim.fn.win_getid()
-	require("leap").leap({ target_windows = { current_window } })
+    local current_window = vim.fn.win_getid()
+    require("leap").leap({ target_windows = { current_window } })
 end)
-
--- luasnip remaps
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-	require("luasnip").jump(1)
-end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
-	require("luasnip").jump(-1)
-end, { silent = true })
